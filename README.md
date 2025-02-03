@@ -135,4 +135,4 @@ Ce projet est sous licence [MIT](https://opensource.org/licenses/MIT). Vous ête
 
 ### 📞 Support
 
-Pour toute question ou assistance, contactez-nous à [support@technipole-sup-valor.com](mailto:support@technipole-sup-valor.com).
+Pour toute question ou assistance, contactez-nous à [support@toggettech.org](mailto:support@toggettech.org).
