@@ -6,7 +6,7 @@ require_once 'config/database.php';
 // Ajouter une actualité
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'create') {
     $title = trim($_POST['title'] ?? '');
-    $content = $_POST['content'] ?? '';
+    $content = trim($_POST['content'] ?? '');
     $author = trim($_POST['author'] ?? 'Admin');
     $status = trim($_POST['status'] ?? 'draft');
     $imagePath = '';

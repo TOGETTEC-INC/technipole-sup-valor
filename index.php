@@ -151,18 +151,7 @@
                                 <div class="row align-items-center">
                                     
 
-                                    <!-- Titre et contenu -->
-                                    <div class="col-md-6">
-                                        <h3 class="fw-bold" style="font-size: calc(1rem + 1vw);">
-                                            <?php echo htmlspecialchars($news['title']); ?>
-                                        </h3>
-                                        <p style="font-size: calc(0.8rem + 0.5vw);">
-                                            <?php echo nl2br(htmlspecialchars(substr($news['content'], 0, 200))); ?>...
-                                        </p>
-                                        <a href="news_details.php?id=<?php echo $news['id']; ?>" class="btn btn-orange">
-                                            Lire plus
-                                        </a>
-                                    </div>
+                                    
 
                                     <!-- Image -->
                                     <div class="col-md-6">
@@ -176,6 +165,19 @@
                                         <?php endif; ?>
                                     </div>
                                     
+                                    <!-- Titre et contenu -->
+                                    <div class="col-md-6">
+                                        <h3 class="fw-bold" style="font-size: calc(1rem + 1vw);">
+                                            <?php echo htmlspecialchars($news['title']); ?>
+                                        </h3>
+                                        <p style="font-size: calc(0.8rem + 0.5vw);">
+                                        <?php echo nl2br(substr(htmlspecialchars_decode($news['content'], ENT_QUOTES), 0, 500)); ?>...
+                                        </p>
+                                        <a href="news_details.php?id=<?php echo $news['id']; ?>" class="btn btn-orange">
+                                            Lire plus
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
                         <?php endforeach; ?>
