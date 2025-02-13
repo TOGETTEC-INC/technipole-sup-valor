@@ -15,5 +15,9 @@
     <a href="manage_users.php" class="sidebar-link">
         <i class="fas fa-users me-2"></i> Gérer Utilisateurs
     </a>
+
+    <a href="manage_partners.php" class="sidebar-link">
+        <i class="fa-solid fa-newspaper me-2"></i> Gérer partenaires
+    </a>
     <!-- Ajoutez d'autres liens / sections au besoin -->
 </div>

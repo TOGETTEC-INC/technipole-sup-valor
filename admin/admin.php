@@ -40,7 +40,7 @@
                 <div class="card bg-primary text-white mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Startups Actives</h5>
-                        <p class="card-text fs-4"><?php echo htmlspecialchars($totalStartups); ?></p> 
+                        <p class="card-text fs-4"><?php echo htmlspecialchars($totalStartups); ?></p>
                     </div>
                 </div>
             </div>
@@ -62,6 +62,29 @@
             </div>
         </div>
 
+        <?php
+        // Charger la connexion PDO
+        require_once './config/database.php';
+
+        // Vérifier si une mise à jour de statut est demandée
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
+            $applicationId = intval($_POST['application_id']);
+            $newStatus = trim($_POST['status']);
+
+            // Mettre à jour le statut dans la base de données
+            $sql = "UPDATE applications SET status = :status WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':status', $newStatus, PDO::PARAM_STR);
+            $stmt->bindValue(':id', $applicationId, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        // Récupérer les candidatures
+        $sql = "SELECT id, project_name, created_at, status FROM applications ORDER BY created_at DESC LIMIT 10";
+        $stmt = $pdo->query($sql);
+        $applications = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+
         <!-- Exemple : Liste rapide de candidatures récentes -->
         <div class="card mb-4">
             <div class="card-header">
@@ -74,25 +97,39 @@
                             <th scope="col">Startup</th>
                             <th scope="col">Date de soumission</th>
                             <th scope="col">Statut</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Données d'exemple -->
-                        <tr>
-                            <td>Startup Alpha</td>
-                            <td>2025-01-10</td>
-                            <td><span class="badge bg-success">Acceptée</span></td>
-                        </tr>
-                        <tr>
-                            <td>Startup Beta</td>
-                            <td>2025-01-12</td>
-                            <td><span class="badge bg-secondary">En cours</span></td>
-                        </tr>
-                        <tr>
-                            <td>Startup Gamma</td>
-                            <td>2025-01-15</td>
-                            <td><span class="badge bg-danger">Refusée</span></td>
-                        </tr>
+                        <?php if (!empty($applications)): ?>
+                            <?php foreach ($applications as $application): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($application['project_name']); ?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($application['created_at'])); ?></td>
+                                    <td>
+                                        <form method="POST" action="">
+                                            <input type="hidden" name="application_id"
+                                                value="<?php echo $application['id']; ?>">
+                                            <select name="status" class="form-select form-select-sm"
+                                                onchange="this.form.submit()">
+                                                <option value="pending" <?php echo $application['status'] === 'pending' ? 'selected' : ''; ?>>En demande</option>
+                                                <option value="accepted" <?php echo $application['status'] === 'accepted' ? 'selected' : ''; ?>>Acceptée</option>
+                                                <option value="rejected" <?php echo $application['status'] === 'rejected' ? 'selected' : ''; ?>>Annulée</option>
+                                            </select>
+                                            <input type="hidden" name="update_status" value="1">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <a href="view_application.php?id=<?php echo $application['id']; ?>"
+                                            class="btn btn-sm btn-info">Voir</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="4" class="text-center">Aucune candidature disponible.</td>
+                            </tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
                 <!-- Un lien pour voir plus de candidatures -->
@@ -100,7 +137,7 @@
             </div>
         </div>
 
-        <!-- Ajoutez d'autres modules, graphiques, etc. -->
+
 
     </div> <!-- fin #main-content -->
 

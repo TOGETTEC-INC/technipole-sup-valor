@@ -12,9 +12,9 @@
             <div class="col-md-2 mb-4">
                 <h6 class="fw-bold text-dark">Programmes</h6>
                 <ul class="list-unstyled">
-                    <li><a href="programs.html" class="text-dark text-decoration-none">Incubation</a></li>
-                    <li><a href="programs.html" class="text-dark text-decoration-none">Acceleration</a></li>
-                    <li><a href="mentors.html" class="text-dark text-decoration-none">Mentorat</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Incubation</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Acceleration</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Mentorat</a></li>
                 </ul>
             </div>
 
@@ -22,8 +22,8 @@
             <div class="col-md-2 mb-4">
                 <h6 class="fw-bold text-dark">Entreprise</h6>
                 <ul class="list-unstyled">
-                    <li><a href="about.html" class="text-dark text-decoration-none">À propos</a></li>
-                    <li><a href="contact.html" class="text-dark text-decoration-none">Contact</a></li>
+                    <li><a href="about.php" class="text-dark text-decoration-none">À propos</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Contact</a></li>
                     <li><a href="#" class="text-dark text-decoration-none">Presse</a></li>
                 </ul>
             </div>
@@ -32,8 +32,8 @@
             <div class="col-md-2 mb-4">
                 <h6 class="fw-bold text-dark">Ressources</h6>
                 <ul class="list-unstyled">
-                    <li><a href="events.html" class="text-dark text-decoration-none">Événements</a></li>
-                    <li><a href="startups.html" class="text-dark text-decoration-none">Startups</a></li>
+                    <li><a href="events.php" class="text-dark text-decoration-none">Événements</a></li>
+                    <li><a href="startups.php" class="text-dark text-decoration-none">Startups</a></li>
                     <li><a href="#" class="text-dark text-decoration-none">Blog</a></li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
             <!-- Slogan & Call to Action -->
             <div class="col-md-3 mb-4 d-flex flex-column align-items-md-end">
                 <p class="mb-2 fw-semibold">Make something people want.</p>
-                <a href="apply.html" class="btn btn-orange text-white"
+                <a href="apply.php" class="btn btn-orange text-white"
                     style="background-color: #FF6600; border: none;">Apply</a>
             </div>
         </div>

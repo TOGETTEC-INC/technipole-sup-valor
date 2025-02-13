@@ -39,8 +39,8 @@ if (!$startup) {
   <!-- Affichage du logo -->
   <?php if (!empty($startup['logo'])): ?>
     <img 
-      src="<?php echo htmlspecialchars($startup['logo']); ?>" 
-      alt="Logo <?php echo htmlspecialchars($startup['name']); ?>"
+      src="./admin/uploads/startups/<?php echo htmlspecialchars($startup['logo']); ?>" 
+      alt="<?php echo htmlspecialchars($startup['name']); ?>"
       style="max-height: 100px;"
     >
   <?php else: ?>
