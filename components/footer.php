@@ -40,7 +40,6 @@
 
             <!-- Slogan & Call to Action -->
             <div class="col-md-3 mb-4 d-flex flex-column align-items-md-end">
-                <p class="mb-2 fw-semibold">Make something people want.</p>
                 <a href="apply.php" class="btn btn-orange text-white"
                     style="background-color: #FF6600; border: none;">Apply</a>
             </div>

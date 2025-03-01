@@ -134,7 +134,7 @@ $partners = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>Nom</th>
                         <th>Logo</th>
                         <th>Site Web</th>
-                        <th>Description</th>
+                        <!-- <th>Description</th> -->
                         <th>Statut</th>
                         <th>Actions</th>
                     </tr>
@@ -160,7 +160,7 @@ $partners = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         —
                                     <?php endif; ?>
                                 </td>
-                                <td><?php echo nl2br(htmlspecialchars($partner['description'])); ?></td>
+                                <!-- <td><?php echo nl2br(htmlspecialchars($partner['description'])); ?></td> -->
                                 <td>
                                     <span
                                         class="badge <?php echo $partner['status'] === 'actif' ? 'bg-success' : 'bg-secondary'; ?>">
